@@ -1,0 +1,448 @@
+:root {
+  /* Colors from style-guide.md */
+  --blue-500: hsl(220 98% 61%);
+  --check-start: hsl(192 100% 67%);
+  --check-end: hsl(280 87% 65%);
+  --gray-50: hsl(0 0% 98%);
+  --purple-300: hsl(234 39% 85%);
+  --gray-300: hsl(233 11% 84%);
+  --gray-600: hsl(236 9% 61%);
+  --navy-850: hsl(235 19% 35%);
+  --navy-950: hsl(235 21% 11%);
+  --navy-900: hsl(235 24% 19%);
+  --purple-100: hsl(236 33% 92%);
+  --purple-600: hsl(235 16% 43%);
+  --purple-700: hsl(233 14% 35%);
+  --purple-800: hsl(237 14% 26%);
+  --page-background: var(--gray-50);
+  --surface: hsl(0 0% 100%);
+  --text: var(--navy-850);
+  --line: var(--gray-300);
+  --shadow: 0 30px 45px -25px hsl(235 19% 35% / .35);
+  --radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  background: var(--page-background) url("./images/bg-desktop-light.jpg") top center / 100% 300px no-repeat;
+  font: 400 18px/1.2 "Josefin Sans", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.todo-app {
+  width: min(540px, calc(100% - 48px));
+  margin: 78px auto 0;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 0;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 15px;
+  line-height: 1;
+}
+
+.theme-icon,
+.delete-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.theme-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.theme-icon img {
+  width: 26px;
+  height: 26px;
+}
+
+.new-todo {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin-bottom: 24px;
+  padding: 0 24px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.new-todo input {
+  min-width: 0;
+  flex: 1;
+  margin-left: 18px;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  background: transparent;
+}
+
+.new-todo input::placeholder {
+  color: var(--gray-600);
+  opacity: .85;
+}
+
+.todo-circle {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  border: 1px solid var(--gray-300);
+  border-radius: 50%;
+}
+
+.todo-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.todo-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  min-height: 65px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.todo-item label {
+  flex: 1;
+  margin-left: 18px;
+  cursor: pointer;
+}
+
+.todo-checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--gray-300);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.todo-checkbox:checked {
+  border: 0;
+  background: url("./images/icon-check.svg") center / 11px no-repeat, linear-gradient(135deg, var(--check-start), var(--check-end));
+}
+
+.todo-checkbox:checked+label {
+  color: var(--gray-600);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+}
+
+.delete-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.todo-item:hover .delete-button,
+.delete-button:focus-visible {
+  opacity: 1;
+}
+
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 0 24px;
+  color: var(--gray-600);
+  font-size: 14px;
+}
+
+.filters {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.filters a {
+  color: var(--gray-600);
+  text-decoration: none;
+}
+
+.filters a:hover,
+.filters a:focus-visible,
+.filters .is-active {
+  color: var(--blue-500);
+}
+
+.clear-completed {
+  padding: 0;
+  border: 0;
+  color: var(--gray-600);
+  background: transparent;
+  font-size: 14px;
+}
+
+.clear-completed:hover,
+.clear-completed:focus-visible {
+  color: var(--navy-850);
+}
+
+.mobile-filters {
+  display: none;
+}
+
+.reorder-note {
+  margin: 52px 0 24px;
+  color: var(--gray-600);
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: .25px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-image: url("./images/bg-mobile-light.jpg");
+    background-size: 100% 200px;
+  }
+
+  .todo-app {
+    width: min(540px, calc(100% - 48px));
+    margin-top: 48px;
+  }
+
+  .app-header {
+    margin-bottom: 38px;
+  }
+
+  h1 {
+    font-size: 28px;
+    letter-spacing: 10px;
+  }
+
+  .theme-icon,
+  .theme-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .new-todo {
+    height: 48px;
+    margin-bottom: 16px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+
+  .todo-circle,
+  .todo-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .new-todo input,
+  .todo-item label {
+    margin-left: 12px;
+  }
+
+  .todo-item {
+    min-height: 52px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+
+  .todo-checkbox:checked {
+    background-size: 9px, auto;
+  }
+
+  .todo-footer {
+    min-height: 50px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+
+  .todo-footer .filters {
+    display: none;
+  }
+
+  .clear-completed {
+    font-size: 12px;
+  }
+
+  .mobile-filters {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 15px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    font-size: 12px;
+  }
+
+  .reorder-note {
+    margin-top: 42px;
+    font-size: 12px;
+  }
+
+  .delete-button {
+    width: 13px;
+    height: 13px;
+    opacity: 1;
+  }
+
+  .delete-button img {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-background: var(--navy-950);
+    --surface: var(--navy-900);
+    --text: var(--purple-300);
+    --line: var(--purple-800);
+    --shadow: 0 30px 45px -25px hsl(235 21% 11% / .75);
+  }
+
+  body {
+    background-image: url("./images/bg-desktop-dark.jpg");
+  }
+
+  .new-todo input::placeholder,
+  .todo-footer,
+  .filters a,
+  .clear-completed,
+  .reorder-note {
+    color: var(--purple-600);
+  }
+
+  .todo-circle,
+  .todo-checkbox {
+    border-color: var(--purple-700);
+  }
+
+  .todo-checkbox:checked+label {
+    color: var(--purple-600);
+  }
+
+  .clear-completed:hover,
+  .clear-completed:focus-visible {
+    color: var(--purple-100);
+  }
+
+  @media (max-width: 600px) {
+    body {
+      background-image: url("./images/bg-mobile-dark.jpg");
+    }
+  }
+}
+
+body.theme-light {
+  --page-background: var(--gray-50);
+  --surface: hsl(0 0% 100%);
+  --text: var(--navy-850);
+  --line: var(--gray-300);
+  --shadow: 0 30px 45px -25px hsl(235 19% 35% / .35);
+  background-image: url("./images/bg-desktop-light.jpg");
+}
+
+body.theme-light .todo-checkbox:checked + label {
+  color: var(--gray-600);
+}
+
+body.theme-light .clear-completed:hover,
+body.theme-light .clear-completed:focus-visible {
+  color: var(--navy-850);
+}
+
+body.theme-dark {
+  --page-background: var(--navy-950);
+  --surface: var(--navy-900);
+  --text: var(--purple-300);
+  --line: var(--purple-800);
+  --shadow: 0 30px 45px -25px hsl(235 21% 11% / .75);
+  background-image: url("./images/bg-desktop-dark.jpg");
+}
+
+body.theme-dark .new-todo input::placeholder,
+body.theme-dark .todo-footer,
+body.theme-dark .filters a,
+body.theme-dark .clear-completed,
+body.theme-dark .reorder-note {
+  color: var(--purple-600);
+}
+
+body.theme-dark .todo-circle,
+body.theme-dark .todo-checkbox {
+  border-color: var(--purple-700);
+}
+
+body.theme-dark .todo-checkbox:checked + label {
+  color: var(--purple-600);
+}
+
+body.theme-dark .clear-completed:hover,
+body.theme-dark .clear-completed:focus-visible {
+  color: var(--purple-100);
+}
+
+@media (max-width: 600px) {
+  body.theme-light {
+    background-image: url("./images/bg-mobile-light.jpg");
+  }
+
+  body.theme-dark {
+    background-image: url("./images/bg-mobile-dark.jpg");
+  }
+}

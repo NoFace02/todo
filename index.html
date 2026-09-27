@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="scripts.js"></script>
+  <title>Todo app</title>
+</head>
+
+<body>
+  <main class="todo-app">
+    <header class="app-header">
+      <h1>TODO</h1>
+      <button class="theme-icon" type="button" aria-label="Switch to dark mode"><img src="./images/icon-moon.svg" alt=""></button>
+    </header>
+    <form class="new-todo" action="#">
+      <label class="visually-hidden" for="new-todo">Create a new todo</label>
+      <span class="todo-circle" aria-hidden="true"></span>
+      <input id="new-todo" type="text" placeholder="Create a new todo...">
+    </form>
+    <section class="todo-card" aria-label="Todo list">
+      <ul class="todo-list">
+        <li class="todo-item is-completed"><input class="todo-checkbox" id="todo-1" type="checkbox" checked><label
+            for="todo-1">Complete online JavaScript course</label><button class="delete-button" type="button"
+            aria-label="Delete Complete online JavaScript course"><img src="./images/icon-cross.svg" alt=""></button>
+        </li>
+        <li class="todo-item"><input class="todo-checkbox" id="todo-2" type="checkbox"><label for="todo-2">Jog around the park 3x</label><button class="delete-button" type="button" aria-label="Delete Jog around the park 3x"><img src="./images/icon-cross.svg" alt=""></button></li>
+        <li class="todo-item"><input class="todo-checkbox" id="todo-3" type="checkbox"><label for="todo-3">10 minutes meditation</label><button class="delete-button" type="button" aria-label="Delete 10 minutes meditation"><img src="./images/icon-cross.svg" alt=""></button></li>
+        <li class="todo-item"><input class="todo-checkbox" id="todo-4" type="checkbox"><label for="todo-4">Read for 1 hour</label><button class="delete-button" type="button" aria-label="Delete Read for 1 hour"><img src="./images/icon-cross.svg" alt=""></button></li>
+        <li class="todo-item"><input class="todo-checkbox" id="todo-5" type="checkbox"><label for="todo-5">Pick up groceries</label><button class="delete-button" type="button" aria-label="Delete Pick up groceries"><img src="./images/icon-cross.svg" alt=""></button></li>
+        <li class="todo-item"><input class="todo-checkbox" id="todo-6" type="checkbox"><label for="todo-6">Complete Todo App on Frontend Mentor</label><button class="delete-button" type="button" aria-label="Delete Complete Todo App on Frontend Mentor"><img src="./images/icon-cross.svg" alt=""></button></li>
+      </ul>
+      <div class="todo-footer"><span>5 items left</span>
+        <nav class="filters" aria-label="Filter todos"><a class="is-active" href="#all">All</a><a
+            href="#active">Active</a><a href="#completed">Completed</a></nav><button class="clear-completed"
+          type="button">Clear Completed</button>
+      </div>
+    </section>
+    <nav class="filters mobile-filters" aria-label="Filter todos"><a class="is-active" href="#all">All</a><a
+        href="#active">Active</a><a href="#completed">Completed</a></nav>
+    <p class="reorder-note">Drag and drop to reorder list</p>
+  </main>
+</body>
+
+</html>
